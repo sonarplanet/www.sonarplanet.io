@@ -21,15 +21,16 @@
     "automock": false,
     "setupTestFrameworkScriptFile": "mock-local-storage"
   },
-
-  
-  
   "scripts": {
     "dev":
       "WEBPACK_ENV_MODE=development webpack-dev-server -p --progress --mode=development",
     "integ": "WEBPACK_ENV_MODE=integration webpack -p --progress",
     "prod": "WEBPACK_ENV_MODE=production webpack",
-    "test": "jest"
+    "test": "jest",
+    "pretty": "prettier --config ./prettier.config.js \"{src,test}/**/*.ts\"",
+    "prettify": "yarn pretty --write",
+    "prettify:check": "yarn pretty -l",
+    "lint": "tslint -c ./tslint.json -t codeFrame \"{src,test}/**/*.ts\""
   },
   "devDependencies": {
     "@types/jest": "^22.2.3",
@@ -50,7 +51,11 @@
     "sharp": "^0.20.1",
     "string-replace-loader": "^2.1.1",
     "node-sass": "^4.8.3",
-    "jest": "^22.4.3"
+    "jest": "^22.4.3",
+    "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.12.0",
+    "tslint-config-standard": "^7.0.0",
+    "prettier": "1.12.1"
   },
   "repository": "git@github.com:sonarplanet/www.sonarplanet.io.git",
   "author": "Guillaume Nicolas <guillaume.nicolas@spacelephant.org>",
