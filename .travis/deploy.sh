@@ -1,6 +1,6 @@
 #!/bin/sh
 
-( yarn prettify:check || yarn lint || true ) && yarn test yarn prod
+( yarn prettify:check || yarn lint || true ) && yarn test && yarn prod
 
 if [ "$TRAVIS_BRANCH" = "master" ];
 then
