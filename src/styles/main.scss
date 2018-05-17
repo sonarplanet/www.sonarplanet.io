@@ -1,0 +1,142 @@
+.float-line {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  header {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+    padding: 40px 0px;
+    .logo {
+      max-height: 150px;
+      width: auto;
+      margin: 50px 0px;
+    }
+    .lead {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 30px 0px;
+    }
+  }
+  .navbar {
+    background-color: #000000;
+    color: #ffffff;
+    a, a:hover, a.active {
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+  .navbar-brand img {
+    height: 30px;
+    width: auto;
+  }
+  .navbar-right a {
+    border: 2px solid #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+}
+
+.checkbox label input {
+  margin-right: 5px;
+}
+
+.white-icon {
+  color: #FFFFFF;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+section {
+  padding: 40px 0px;
+  background-color: lightgrey;
+  text-align: center;
+  &.odd {
+    background-color: grey;
+    color: #fff;
+  }
+  &.action {
+    display: flex;
+    flex: 1;
+    .choose-network {
+      .radio-buttons {
+        margin-top: 20px;
+      }
+      .search-form {
+        justify-content: center;
+        display: flex;
+        margin-top: 20px;
+        label {
+          margin-right: 10px;
+        }
+      }
+    }
+    .carousel-indicators {
+      position: relative;
+    }
+  }
+  .card.card-body {
+    color: #000000;
+    text-align: left;
+  }
+}
+
+label.radio-inline {
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  padding: 5px 15px;
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+}
+
+.words {
+  margin-bottom: 30px;
+}
+
+
+#carouselForm {
+  padding-top: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .carousel-inner {
+    display: flex;
+    flex:1;
+  }
+  .carousel-indicators li {
+    text-indent: initial;
+    height: auto;
+    background-color: transparent;
+    border: 2px dotted;
+    text-align: center;
+    padding: 0px 23px 0px 11px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    &.active {
+      border-style: solid;
+    }
+    &::before, &::after {
+      display: none;
+    }
+  }
+}
+
+.thumbnail .caption p {
+  text-align: justify;
+}
+
+footer {
+  background-color: black;
+  color: #fff;
+  padding: 40px 0px;
+}

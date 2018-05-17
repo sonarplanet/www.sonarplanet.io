@@ -1,0 +1,344 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Sonar Planet, track your address">
+    <meta name="keywords" content="blockchain, tracker, transactions, decentralization, economy, space elephant, spacelephant">
+    <meta property="og:locale" content="en_UK" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sonar Planet, track your address | by Space Elephant" />
+    <title>Sonar Planet, track your address | by Space Elephant</title>
+    <meta property="og:description" content="Sonar Planet, track your address." />
+    <meta property="og:url" content="https://www.sonarplanet.io/" />
+    <meta property="og:site_name" content="Sonar Planet" />
+    <meta property="og:image" content="images/homepage-screenshot.jpg" />
+    <meta property="og:image:secure_url" content="images/homepage-screenshot.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="Sonar Planet, track your address | by Space Elephant" />
+    <meta name="twitter:title" content="Sonar Planet, track your address | by Space Elephant" />
+    <meta name="twitter:image" content="images/homepage-screenshot.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script type='application/ld+json'>{"@context": "https:\/\/schema.org","@type": "WebSite","@id": "#website","url": "https:\/\/www.sonarplanet.io\/","name": "Sonar Planet"}</script>
+    <script type='application/ld+json'>{"@context": "https:\/\/schema.org","@type": "Organization","url": "https:\/\/www.spacelephant.org\/","sameAs": ["https:\/\/www.linkedin.com\/company\/spacelephant"],"@id": "#organization","name": "Space Elephant","logo": "https:\/\/www.spacelephant.org\/images\/logo_header.png"}</script>
+
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19"
+        crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" href="./favicon.ico" />
+
+    <script>
+        $(document).ready(() => {
+            $('input.typeahead').typeahead({
+                source: query => {
+                    // TODO Get json
+                    return $.get("suggest.json");
+                },
+                templates: {
+                    suggestion: Handlebars.compile('<div>[{{symbol}}] {{name}}</div>')
+                }
+            });
+        })
+    </script>
+
+</head>
+
+<body>
+    <div class="float-line">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="./">
+                        <img alt="Brand" src="./images/logo.png"> SONAR PLANET - ALPHA1
+                    </a>
+                </div>
+                <div class="navbar-right">
+                    <a href="#">SONAR FOR ICO</a>
+                    <a href="#">SONAR APPLICATION</a>
+                </div>
+            </div>
+
+        </nav>
+        <header>
+            <img class="logo" src="./images/logo.png" alt="logo sonarplanet" />
+            <h1>SONAR PLANET</h1>
+            <div class="lead">
+                <span>WATCH* A BLOCKCHAIN &amp; GET NOTIFIED</span>
+                <span>*TRANSACTION, CONFIRAMTION, BALANCE...</span>
+            </div>
+        </header>
+        <section class="action odd">
+            <div class="container">
+                <h2>ACTIVATE YOUR BLOCKCHAIN SONAR IN 3 STEPS</h2>
+
+                <div id="carouselForm" class="carousel slide" data-ride="carousel" data-interval="0">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselForm" data-slide-to="0" class="active">1</li>
+                        <li data-target="#carouselForm" data-slide-to="1">2</li>
+                        <li data-target="#carouselForm" data-slide-to="2">3</li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active choose-network">
+                            <div>CHOOSE ON WITCH NETWORK</div>
+                            <div class="radio-buttons">
+                                <label class="radio-inline">
+                                    <input type="radio" name="networkRadioOptions" id="radioBTC" value="radioBTC"> BTC
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="networkRadioOptions" id="radioETH" value="radioETH"> ETH
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="networkRadioOptions" id="radioLTC" value="radioLTC"> LTC
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="networkRadioOptions" id="radioEOS" value="radioEOS"> EOS
+                                </label>
+                            </div>
+                            <div class="form-group form-inline search-form">
+                                <label for="search">SEARCH : </label>
+                                <input type="text" class="form-control typeahead" id="search-blockchain" data-provide="typeahead" placeholder="ANOTHER BLOCKCHAIN">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="form-group">
+                                <div>CHOOSE ON WITCH PUBLIC ADDRESS</div>
+                                <input type="text" class="form-control" id="public-address" placeholder="PUBLIC ADDRESS">
+                            </div>
+                            <div class="form-group">
+                                <div>AND GIVE IT A TAG NAME</div>
+                                <input type="text" class="form-control" id="address-tag" placeholder="#YOURTAG">
+                            </div>
+                            <button class="btn btn-default" type="submit">NEXT, LAST</button>
+                        </div>
+                        <div class="carousel-item">
+                            <p>CHOOSE KIND OF SONAR</p>
+                            <p>BLOCKCHAIN #TAGNAME</p>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="choosen-address" disabled="disabled">
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="incomingTransactionCbx" value="incoming-transaction" aria-label="INCOMING TRANSACTION"> INCOMING TRANSACTION
+                                        <span class="fa-layers fa-fw" data-toggle="tooltip" data-placement="top" title="Tootltip informations">
+                                            <i class="fas fa-question-circle"></i>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="outgoingTransactionCbx" value="outgoing-transaction" aria-label="OUTGOING TRANSACTION"> OUTGOING TRANSACTION
+                                        <span class="fa-layers fa-fw" data-toggle="tooltip" data-placement="top" title="Tootltip informations">
+                                            <i class="fas fa-question-circle"></i>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label data-toggle="collapse" href="#collapseConfirmations" aria-expanded="false" aria-controls="collapseConfirmations">
+                                        <input type="checkbox" id="confirmationsCbx" value="confirmations" aria-label="CONFIRMATIONS"> CONFIRMATIONS
+                                        <span class="fa-layers fa-fw" data-toggle="tooltip" data-placement="top" title="Tootltip informations">
+                                            <i class="fas fa-question-circle"></i>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="collapse" id="collapseConfirmations">
+                                    <div class="card card-body">
+                                        <div class="radio-buttons">
+                                            <div>
+                                                <label>
+                                                    <input type="radio" name="confirmationsOptions" id="radioValidationEach" value="radioValidationEach"> GET NOTIFIED FOR EACH CONFIRMATION UNTIL VALIDATION (7 CONFIRMATIONS)
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label>
+                                                    <input type="radio" name="confirmationsOptions" id="radioValidationOnly" value="radioValidationOnly"> GET NOTIFIED ONLY WHEN VALIDATED
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label data-toggle="collapse" href="#collapseBalance" aria-expanded="false" aria-controls="collapseBalance">
+                                        <input type="checkbox" id="balanceCbx" value="balance" aria-label="BALANCE THRESHOLD"> BALANCE THRESHOLD
+                                        <span class="fa-layers fa-fw" data-toggle="tooltip" data-placement="top" title="Tootltip informations">
+                                            <i class="fas fa-question-circle"></i>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="collapse" id="collapseBalance">
+                                    <div class="card card-body">
+                                        <div class="checkbox">
+                                            <label class="form-inline">
+                                                <input type="checkbox" id="balanceExceedCbx" value="balanceExceed" aria-label="BALANCE EXCEED"> GET NOTIFIED WHEN BALANCE EXCEED ### LIMIT :
+                                                <input type="text" class="form-control" id="balanceExceedValue"> #NETWORK_CRYPTO
+                                        </div>
+                                        <div class="checkbox">
+                                            <label class="form-inline">
+                                                <input type="checkbox" id="balanceFloorCbx" value="balanceFloor" aria-label="BALANCE EXCEED"> GET NOTIFIED WHEN BALANCE BREAK DOWN THE FLOOR LIMIT :
+                                                <input type="text" class="form-control" id="balanceFloorValue"> #NETWORK_CRYPTO
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-default" type="submit">ACTIVATE YOUR SONAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section>
+        <div class="container">
+            <div>
+                STOP WASTING YOUR TIME WAITING FOR
+            </div>
+            <div id="typewriter">
+
+            </div>
+            <div>
+                WE DO IT FOR YOU AND KEEPYOU INFORMED OH WHAT'S GOING ON
+            </div>
+        </div>
+    </section>
+    <section class="odd">
+        <div class="container">
+            <div class="row words">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="" alt="">
+                        <div class="caption">
+                            <h3>UNIVERSAL</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio iusto hic repellat consectetur
+                                error iure voluptate.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="" alt="">
+                        <div class="caption">
+                            <h3>NO-SIGNUP</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio iusto hic repellat consectetur
+                                error iure voluptate.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="" alt="">
+                        <div class="caption">
+                            <h3>SIMPLE</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio iusto hic repellat consectetur
+                                error iure voluptate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                WORK WITH BROWSER NOTIFICATIONS
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            SEO
+        </div>
+    </section>
+    <section class="odd">
+        <div class="container">
+            <div>
+                KEEP IN TOUCH &amp;
+            </div>
+            <div>
+                RECEIVE SONAR NEWS
+            </div>
+            <div>
+                FORM
+            </div>
+            <div>
+                (PRIVACY IS in OUR CORE VALUES, WE WILL SELL NOR SHARE YOUR EMAIL)
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <a href="https://www.spacelephant.org" target="_blank">Space Elephant</a>
+                    </div>
+                    <div>
+                        <a href="https://www.universal-name-system.com" target="_blank">Universal Name System</a>
+                    </div>
+                    <div>
+                        Copyright &copy; 2018 - Space Elephant - All rights reserved
+                    </div>
+                </div>
+                <div class="col-md-3 center">
+                    <div>
+                        Feedback
+                    </div>
+                    <div>
+                        Privacy policy
+                    </div>
+                    <div>
+                        <a href="mailto:support@sonarplanet.io">support@sonarplanet.io</a>
+                    </div>
+                </div>
+                <div class="col-md-3 right social">
+                    <a href="https://twitter.com/spacelephant01" target="_blank">
+                        <span class="fa-layers fa-fw">
+                            <i class="fas fa-circle fa-lg white-icon"></i>
+                            <i class="fab fa-twitter purple-icon" data-fa-transform="shrink-1 down-.25 right-.25"></i>
+                        </span>
+                    </a>
+                    <a href="https://medium.com/spacelephant" target="_blank">
+                        <span class="fa-layers fa-fw">
+                            <i class="fas fa-circle fa-lg white-icon"></i>
+                            <i class="fab fa-medium-m purple-icon" data-fa-transform="shrink-1 down-.25 right-.25"></i>
+                        </span>
+                    </a>
+                    <a class="github" href="https://github.com/spacelephant" target="_blank">
+                        <span class="fa-layers fa-fw">
+                            <i class="fas fa-circle fa-lg purple-icon"></i>
+                            <i class="fab fa-github fa-lg white-icon"></i>
+                        </span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/spacelephant/" target="_blank">
+                        <span class="fa-layers fa-fw">
+                            <i class="fas fa-circle fa-lg white-icon"></i>
+                            <i class="fab fa-linkedin-in purple-icon" data-fa-transform="shrink-3 right-1.1 up-1.1"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
