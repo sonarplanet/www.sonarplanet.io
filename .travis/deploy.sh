@@ -1,14 +1,12 @@
 #!/bin/sh
 
-( yarn prettify:check || yarn lint || true ) && yarn test
+( yarn prettify:check || yarn lint || true ) && yarn test yarn prod
 
 if [ "$TRAVIS_BRANCH" = "master" ];
 then
     
     git config --global user.email "travis@travis-ci.org"
     git config --global user.name "Travis CI"
-    
-    yarn prod
     
     git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/sonarplanet/build-ci-test.git gh-pages > /dev/null
     
@@ -25,6 +23,4 @@ then
     
     git push --quiet --set-upstream origin gh-pages > /dev/null
     
-else
-    yarn prod
 fi
