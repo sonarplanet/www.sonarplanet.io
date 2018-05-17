@@ -2,7 +2,7 @@
 
 ( yarn prettify:check || yarn lint || true ) && yarn test && yarn prod
 
-if [ "$TRAVIS_BRANCH" = "master" ];
+if [ "$TRAVIS_BRANCH" = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ];
 then
     
     git config --global user.email "travis@travis-ci.org"
@@ -10,7 +10,7 @@ then
     
     git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/sonarplanet/build-ci-test.git gh-pages > /dev/null
     
-    cd gh-pages
+    cd gh-pages || exit 1
     
     git rm -r .
     git add -A
