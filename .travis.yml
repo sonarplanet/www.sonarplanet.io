@@ -7,10 +7,7 @@ notifications:
   email: false
 node_js:
   - '8'
-branches:
-  except:
-    - master
 script:
-  - ( yarn prettify:check || yarn lint || true ) && yarn test && yarn prod
+  - ./.travis/deploy.sh
 
 
