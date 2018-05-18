@@ -1,0 +1,16 @@
+{
+  "development": {
+    "mode": "development",
+    "devServer": {
+      "contentBase": "dist",
+      "port": 3000
+    }
+  },
+  "integration": {
+    "mode": "development"
+  },
+  "production": {
+    "mode": "production",
+    "cname": "www.sonarplanet.io"
+  }
+}
