@@ -8,7 +8,7 @@ then
     git config --global user.email "travis@travis-ci.org"
     git config --global user.name "Travis CI"
     
-    git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/sonarplanet/build-ci-test.git gh-pages > /dev/null
+    git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/sonarplanet/www.sonarplanet.io.git gh-pages > /dev/null
     
     cd gh-pages || exit 1
     
