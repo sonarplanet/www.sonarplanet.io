@@ -4,12 +4,16 @@ const configurations = require('./src/properties.json');
 const env = process.env.WEBPACK_ENV_MODE;
 const configuration = configurations[env];
 
+const path = require('path');
+const outputPath = "dist";
+
 module.exports = {
   entry: {
     main: ['./src/main.ts', './src/styles/main.scss'],
   },
   output: {
     filename: './js/[name].js',
+    path: path.resolve(__dirname, outputPath),
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -80,6 +84,19 @@ function getPlugins(env) {
       title: 'Unik-name',
     }),
   ];
+
+  // Create CNAME file for Github Pages deployment
+  if (configuration.cname) {
+    console.log("Will generate CNAME file with content: " + configuration.cname);
+    const CreateFileWebpack = require('create-file-webpack');
+    let createFilePlugin = new CreateFileWebpack({
+      path: outputPath,
+      fileName: 'CNAME',
+      content: configuration.cname,
+    });
+
+    commonPlugins.push(createFilePlugin);
+  }
 
   const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
   let uglifyPlugin = new UglifyJsPlugin({

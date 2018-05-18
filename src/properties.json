@@ -10,6 +10,7 @@
     "mode": "development"
   },
   "production": {
-    "mode": "production"
+    "mode": "production",
+    "cname": "www.sonarplanet.io"
   }
 }
