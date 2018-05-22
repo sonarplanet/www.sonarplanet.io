@@ -60,6 +60,29 @@
         })
     </script>
 
+
+    <script type="text/javascript">
+        let submitted = false;
+
+        function onFormSubmit() {
+            if (submitted) {
+                return false;
+            } else {
+                submitted = true;
+            }
+        }
+
+        function onIFrameLoad() {
+            if (submitted) {
+                onFormSubmitResponse();
+            }
+        }
+
+        function onFormSubmitResponse() {
+            // TODO: inform user of the capture of its email
+            alert("Thank you");
+        }
+    </script>
 </head>
 
 <body>
@@ -218,7 +241,7 @@
                 STOP WASTING YOUR TIME WAITING FOR
             </div>
             <div id="typewriter">
-               
+
             </div>
             <div>
                 WE DO IT FOR YOU AND KEEPYOU INFORMED OH WHAT'S GOING ON
@@ -281,7 +304,18 @@
             </h2>
 
             <div class="emailForm">
-                FORM
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="onIFrameLoad()"></iframe>
+
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSeYWf8mGYHWsJJkvtG6FfqcVv5Npcq99TSP3YnHZEbk0ydsbA/formResponse" method="post"
+                    target="hidden_iframe" onsubmit="return onFormSubmit();">
+                    <div>
+                        <label>Email</label>
+                        <input name="entry.1636836867" type="email" required placeholder="email@domain.com" />
+                    </div>
+                    <div>
+                        <input type="submit" value="Send" />
+                    </div>
+                </form>
             </div>
             <div>
                 (PRIVACY IS in OUR CORE VALUES, WE WILL SELL NOR SHARE YOUR EMAIL)
