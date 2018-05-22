@@ -1,11 +1,11 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const configurations = require('./src/properties.json');
 const env = process.env.WEBPACK_ENV_MODE;
 const configuration = configurations[env];
 
 const path = require('path');
-const outputPath = "dist";
+const outputPath = 'dist';
 
 module.exports = {
   entry: {
@@ -43,9 +43,9 @@ module.exports = {
         test: /\.json$/,
         use: [
           {
-            loader: "json-loader"
-          }
-        ]
+            loader: 'json-loader',
+          },
+        ],
       },
       {
         test: /\.html$/,
@@ -56,12 +56,21 @@ module.exports = {
         ],
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        loader: 'responsive-loader',
-        options: {
-          adapter: require('responsive-loader/sharp'),
-          name: 'images/[name].[ext]',
-        },
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '/images/[name]_[hash:7].[ext]',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
@@ -89,13 +98,13 @@ function getPlugins(env) {
       template: './src/index.html',
       filename: './index.html',
       //favicon: "./src/images/favicon.ico",
-      title: 'Unik-name',
+      title: 'Sonarplanet',
     }),
   ];
 
   // Create CNAME file for Github Pages deployment
   if (configuration.cname) {
-    console.log("Will generate CNAME file with content: " + configuration.cname);
+    console.log('Will generate CNAME file with content: ' + configuration.cname);
     const CreateFileWebpack = require('create-file-webpack');
     let createFilePlugin = new CreateFileWebpack({
       path: outputPath,
@@ -106,29 +115,29 @@ function getPlugins(env) {
     commonPlugins.push(createFilePlugin);
   }
 
-  const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-  let uglifyPlugin = new UglifyJsPlugin({
-    test: /\.js($|\?)/i,
-    sourceMap: true,
-  });
+  let uglifyPlugin;
 
   switch (env) {
-    case 'development': {
-      commonPlugins.concat[
-        new UglifyJsPlugin({
-          test: /\.js($|\?)/i,
-          sourceMap: true,
-          uglifyOptions: {
-            compress: false,
-            mangle: false,
-          },
-        })
-      ];
-    }
+    case 'development':
     case 'integration':
-      return commonPlugins.concat([uglifyPlugin]);
+      uglifyPlugin = new UglifyJsPlugin({
+        test: /\.js($|\?)/i,
+        sourceMap: true,
+        uglifyOptions: {
+          compress: false,
+          mangle: false,
+        },
+      });
+      break;
+
     case 'production':
-      return commonPlugins.concat([uglifyPlugin]);
+    default:
+      uglifyPlugin = new UglifyJsPlugin({
+        test: /\.js($|\?)/i,
+        sourceMap: true,
+      });
   }
+  commonPlugins.push(uglifyPlugin);
+
   return commonPlugins;
 }
