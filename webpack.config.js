@@ -12,7 +12,7 @@ module.exports = {
     main: ['./src/main.ts', './src/styles/main.scss'],
   },
   output: {
-    filename: './js/[name].js',
+    filename: './js/[name]_[hash:5].js',
     path: path.resolve(__dirname, outputPath),
   },
   resolve: {
@@ -61,7 +61,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'images/[name]_[hash:7].[ext]',
+              name: 'images/[name]_[hash:5].[ext]',
             },
           },
           {
