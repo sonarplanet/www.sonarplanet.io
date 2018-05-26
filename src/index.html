@@ -34,7 +34,6 @@
         crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
@@ -44,76 +43,55 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19"
         crossorigin="anonymous"></script>
 
+
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,500,700&subset=latin" rel="stylesheet" type="text/css">
+
     <link rel="shortcut icon" href="./favicon.ico" />
 
     <script>
         $(document).ready(() => {
-            $('input.typeahead').typeahead({
-                source: query => {
-                    // TODO Get json
-                    return $.get("suggest.json");
-                },
-                templates: {
-                    suggestion: Handlebars.compile('<div>[{{symbol}}] {{name}}</div>')
-                }
+
+            $.get("suggest.json", function (data) {
+                $("#typeaheadSearch").typeahead({
+                    source: data
+                });
             });
-        })
-    </script>
+        });
 
-
-    <script type="text/javascript">
-        let submitted = false;
-
-        function onFormSubmit() {
-            if (submitted) {
-                return false;
-            } else {
-                submitted = true;
-            }
-        }
-
-        function onIFrameLoad() {
-            if (submitted) {
-                onFormSubmitResponse();
-            }
-        }
-
-        function onFormSubmitResponse() {
-            // TODO: inform user of the capture of its email
-            alert("Thank you");
+        let goToSlide = function (slide) {
+            $("#carouselForm").carousel(slide);
         }
     </script>
+
 </head>
 
 <body>
     <div class="float-line">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="./">
-                        <img alt="Brand" src="./images/logo.png"> SONAR PLANET - ALPHA1
-                    </a>
-                </div>
-                <div class="navbar-right">
-                    <a href="#">SONAR FOR ICO</a>
-                    <a href="#">SONAR APPLICATION</a>
-                </div>
-            </div>
-
-        </nav>
         <header>
-            <img class="logo" src="./images/logo.png" alt="logo sonarplanet" />
-            <h1>SONAR PLANET</h1>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="./">
+                            <img alt="Brand" src="./images/logo_variation_white.svg" alt="navbar_logo" />
+                        </a>
+                    </div>
+                    <div class="navbar-right">
+                        <a href="#">SONAR FOR ICO</a>
+                        <a href="#">SONAR APPLICATION</a>
+                    </div>
+                </div>
+            </nav>
+            <img class="logo" src="./images/logoVF_white.svg" alt="main_logo" />
             <div class="lead">
-                <span>WATCH* A BLOCKCHAIN &amp; GET NOTIFIED</span>
-                <span>*TRANSACTION, CONFIRAMTION, BALANCE...</span>
+                <span>Watch* a blockchain &amp; get notified</span>
+                <span>*transaction, confirmation, balance...</span>
             </div>
         </header>
-        <section class="action odd">
+        <section class="action">
             <div class="container">
-                <h2>ACTIVATE YOUR BLOCKCHAIN SONAR IN 3 STEPS</h2>
+                <h2>Activate your blockchain sonar in 3 steps</h2>
 
-                <div id="carouselForm" class="carousel slide" data-ride="carousel" data-interval="0">
+                <!-- <div id="carouselForm" class="carousel slide" data-ride="carousel" data-interval="0">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselForm" data-slide-to="0" class="active">1</li>
                         <li data-target="#carouselForm" data-slide-to="1">2</li>
@@ -124,21 +102,21 @@
                             <div>CHOOSE ON WITCH NETWORK</div>
                             <div class="radio-buttons">
                                 <label class="radio-inline">
-                                    <input type="radio" name="networkRadioOptions" id="radioBTC" value="radioBTC"> BTC
+                                    <input type="radio" name="networkRadioOptions" id="radioBTC" value="radioBTC" onclick="goToSlide(1)"> BTC
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="networkRadioOptions" id="radioETH" value="radioETH"> ETH
+                                    <input type="radio" name="networkRadioOptions" id="radioETH" value="radioETH" onclick="goToSlide(1)"> ETH
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="networkRadioOptions" id="radioLTC" value="radioLTC"> LTC
+                                    <input type="radio" name="networkRadioOptions" id="radioLTC" value="radioLTC" onclick="goToSlide(1)"> LTC
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="networkRadioOptions" id="radioEOS" value="radioEOS"> EOS
+                                    <input type="radio" name="networkRadioOptions" id="radioEOS" value="radioEOS" onclick="goToSlide(1)"> EOS
                                 </label>
                             </div>
                             <div class="form-group form-inline search-form">
                                 <label for="search">SEARCH : </label>
-                                <input type="text" class="form-control typeahead" id="search-blockchain" data-provide="typeahead" placeholder="ANOTHER BLOCKCHAIN">
+                                <input id="typeaheadSearch" type="text" class="form-control typeahead" id="typeaheadSearch" data-provide="typeahead" placeholder="ANOTHER BLOCKCHAIN">
                             </div>
                         </div>
                         <div class="carousel-item">
@@ -150,7 +128,7 @@
                                 <div>AND GIVE IT A TAG NAME</div>
                                 <input type="text" class="form-control" id="address-tag" placeholder="#YOURTAG">
                             </div>
-                            <button class="btn btn-default" type="submit">NEXT, LAST</button>
+                            <button class="btn btn-default" type="button" onclick="goToSlide(2)">NEXT, LAST</button>
                         </div>
                         <div class="carousel-item">
                             <p>CHOOSE KIND OF SONAR</p>
@@ -228,150 +206,213 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-default" type="submit">ACTIVATE YOUR SONAR</button>
+                            <button class="btn btn-default" onclick="goToSlide(3)" type="button">ACTIVATE YOUR SONAR</button>
+                        </div>
+                        <div class="carousel-item">
+                            <div>
+
+                            </div>
+                            <div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
     </div>
     <section>
-        <div class="container">
-            <div>
-                STOP WASTING YOUR TIME WAITING FOR
+        <div class="container-fluid">
+            <div class="row">
+                <div class="stop col-md-6">
+                    <h3>
+                        <img src="./images/icon_sonar.png" alt="s-sonar" /> Why choose us
+                    </h3>
+                    <h4>
+                        Stop wasting your time waiting for
+                    </h4>
+                    <h5 id="typewriter"></h5>
+                    <div>
+                        We do it for you and keep you informed on what's going on.
+                    </div>
+                </div>
+                <div class="community col-md-6 row">
+                    <div class="col-md-3">
+                        <img class="community-users" src="./images/users.svg" alt="users" />
+                    </div>
+                    <div class="col-md-9">
+                        <h3>By and for the community</h3>
+                        <div class="description">
+                            Sonar Planet is designed and developped by cryptoboys and the blockchain community. You want to propose an extension, just
+                            do it!
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="typewriter">
 
-            </div>
-            <div>
-                WE DO IT FOR YOU AND KEEPYOU INFORMED OH WHAT'S GOING ON
-            </div>
         </div>
     </section>
-    <section class="odd">
+    <section class="values">
         <div class="container">
             <div class="row words">
-                <div class="col-sm-6 col-md-4">
+                <div class="col-sm-6 col-md-4 universal">
                     <div class="thumbnail">
-                        <img src="" alt="">
+                        <img src="./images/infinity.svg" alt="inifinity">
                         <div class="caption">
                             <h3>UNIVERSAL</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio iusto hic repellat consectetur
-                                error iure voluptate.</p>
+                            <p>Sonar Planet has been designed to work on every blockchain. The community can contribute to extend
+                                capabilities and to watch any kind of public keys.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4">
+                <div class="col-sm-6 col-md-4 no-signup">
                     <div class="thumbnail">
-                        <img src="" alt="">
+                        <img src="./images/plus-circle.svg" alt="plus">
                         <div class="caption">
                             <h3>NO-SIGNUP</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio iusto hic repellat consectetur
-                                error iure voluptate.</p>
+                            <p>Sonar Planet is really simple to use. Add the public key to watch, select the kind of notification
+                                you want and that's all.
+                                <div>
+                                    GO AHEAD AND STAY TUNED!
+                                </div>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4">
+                <div class="col-sm-6 col-md-4 simple">
                     <div class="thumbnail">
-                        <img src="" alt="">
+                        <img src="./images/lock.svg" alt="lock">
                         <div class="caption">
                             <h3>SIMPLE</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio iusto hic repellat consectetur
-                                error iure voluptate.</p>
+                            <p>
+                                Sonar Planet is totally private, you choose your level of anonymity. No email and no phone required, unless you want to receive
+                                your notification.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
-                WORK WITH BROWSER NOTIFICATIONS
+        </div>
+    </section>
+    <section class="seo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>SEO Block</h3>
+                    <h4>
+                        <span>Lorem Ipsum Dolor</span>
+                        <span>SEO content for Sonar</span>
+                    </h4>
+                </div>
+                <div class="col-md-8 seo-content">
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, rem accusantium incidunt accusamus, quam aliquam asperiores
+                        aut suscipit repudiandae nesciunt quos vitae! Optio quia cum quisquam hic mollitia ratione fugiat.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, rem accusantium incidunt accusamus, quam aliquam asperiores
+                        aut suscipit repudiandae nesciunt quos vitae! Optio quia cum quisquam hic mollitia ratione fugiat.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, rem accusantium incidunt accusamus,
+                        quam aliquam asperiores aut suscipit repudiandae nesciunt quos vitae! Optio quia cum quisquam hic
+                        mollitia ratione fugiat.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, rem accusantium incidunt accusamus, quam aliquam asperiores
+                        aut suscipit repudiandae nesciunt quos vitae! Optio quia cum quisquam hic mollitia ratione fugiat.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, rem accusantium incidunt accusamus,
+                        quam aliquam asperiores aut suscipit repudiandae nesciunt quos vitae! Optio quia cum quisquam hic
+                        mollitia ratione fugiat. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, rem accusantium
+                        incidunt accusamus, quam aliquam asperiores aut suscipit repudiandae nesciunt quos vitae! Optio quia
+                        cum quisquam hic mollitia ratione fugiat. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Odit, rem accusantium incidunt accusamus, quam aliquam asperiores aut suscipit repudiandae nesciunt
+                        quos vitae! Optio quia cum quisquam hic mollitia ratione fugiat.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
-    <section>
-        <div class="container">
-            SEO
-        </div>
-    </section>
-    <section class="odd">
-        <div class="container">
-            <h2>
-                <span>
-                    KEEP IN TOUCH &amp;
-                </span>
-                <span>
-                    RECEIVE SONAR NEWS
-                </span>
-            </h2>
-
+    <section class="newsletter">
+        <div class="container-fluid">
+            <h2>Don't miss out, stay updated</h2>
+            <h3>Keep in touch &amp; receive sonar news</h3>
             <div class="emailForm">
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="onIFrameLoad()"></iframe>
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                <form id="emailForm" action="https://docs.google.com/forms/d/e/1FAIpQLSeYWf8mGYHWsJJkvtG6FfqcVv5Npcq99TSP3YnHZEbk0ydsbA/formResponse"
+                    method="post" target="hidden_iframe">
 
-                <form action="https://docs.google.com/forms/d/e/1FAIpQLSeYWf8mGYHWsJJkvtG6FfqcVv5Npcq99TSP3YnHZEbk0ydsbA/formResponse" method="post"
-                    target="hidden_iframe" onsubmit="return onFormSubmit();">
-                    <div>
-                        <label>Email</label>
-                        <input name="entry.1636836867" type="email" required placeholder="email@domain.com" />
+                    <div class="input-group my-4">
+                        <input name="entry.1636836867" type="email" class="form-control" placeholder="Enter your email address" aria-label="Enter your email address"
+                            aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <input class="input-group-text" id="basic-addon2" type="submit" value="Subscribe" />
+                        </div>
                     </div>
-                    <div>
-                        <input type="submit" value="Send" />
-                    </div>
+
                 </form>
             </div>
-            <div>
-                <span class="upper-text">(privacy is in our core value, we will never sell nor share your email)</span>
+            <div class="privacy">
+                (Privacy is in our core value, we will never sell nor share your email)
             </div>
         </div>
     </section>
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div>
-                        <a href="https://www.spacelephant.org" target="_blank">Space Elephant</a>
-                    </div>
-                    <div>
-                        <a href="https://www.universal-name-system.com" target="_blank">Universal Name System</a>
-                    </div>
+                <div class="col-md-4 coord">
                     <div>
                         Copyright &copy; 2018 - Space Elephant - All rights reserved
                     </div>
+                    <div>
+                        Join us |
+                        <a href="mailto:support@sonarplanet.com">support@sonarplanet.com</a>
+                    </div>
+                    <img src="./images/space_elephant_W1color.png" />
                 </div>
-                <div class="col-md-3 center">
-                    <div>
-                        Feedback
-                    </div>
-                    <div>
-                        Privacy policy
-                    </div>
-                    <div>
-                        <a href="mailto:support@sonarplanet.io">support@sonarplanet.io</a>
-                    </div>
+                <div class="col-md-2 navigation">
+                    <h6>Main Navigation</h6>
+                    <a href="./">FAQ</a>
+                    <a href="./">Privacy policy</a>
+                    <a href="./">Sonar for ICO</a>
+                    <a href="./">Sonar application</a>
                 </div>
-                <div class="col-md-3 right social">
-                    <a href="https://twitter.com/spacelephant01" target="_blank">
-                        <span class="fa-layers fa-fw">
-                            <i class="fas fa-circle fa-lg white-icon"></i>
-                            <i class="fab fa-twitter purple-icon" data-fa-transform="shrink-1 down-.25 right-.25"></i>
-                        </span>
-                    </a>
-                    <a href="https://medium.com/spacelephant" target="_blank">
-                        <span class="fa-layers fa-fw">
-                            <i class="fas fa-circle fa-lg white-icon"></i>
-                            <i class="fab fa-medium-m purple-icon" data-fa-transform="shrink-1 down-.25 right-.25"></i>
-                        </span>
-                    </a>
-                    <a class="github" href="https://github.com/spacelephant" target="_blank">
-                        <span class="fa-layers fa-fw">
-                            <i class="fas fa-circle fa-lg purple-icon"></i>
-                            <i class="fab fa-github fa-lg white-icon"></i>
-                        </span>
-                    </a>
-                    <a href="https://www.linkedin.com/company/spacelephant/" target="_blank">
-                        <span class="fa-layers fa-fw">
-                            <i class="fas fa-circle fa-lg white-icon"></i>
-                            <i class="fab fa-linkedin-in purple-icon" data-fa-transform="shrink-3 right-1.1 up-1.1"></i>
-                        </span>
-                    </a>
+                <div class="col-md-2 navigation">
+                    <h6>About us</h6>
+                    <a href="https://medium.com/spacelephant" target="_blank">Blog</a>
+                    <a href="https://www.spacelephant.org#team" target="_blank">Team</a>
+                    <a href="https://www.spacelephant.org" target="_blank">Space Elephant</a>
+                    <a href="https://www.universal-name-system.com" target="_blank">Universal Name System</a>
+                </div>
+                <div class="col-md-4">
+                    <h6>Join our growing slack community</h6>
+                    <div class="slack">
+
+                    </div>
+                    <div class="social">
+                        <a href="https://twitter.com/spacelephant01" target="_blank">
+                            <span class="fa-layers fa-fw">
+                                <i class="fas fa-circle fa-lg white-icon"></i>
+                                <i class="fab fa-twitter purple-icon" data-fa-transform="shrink-1 down-.25 right-.25"></i>
+                            </span>
+                        </a>
+                        <a href="https://medium.com/spacelephant" target="_blank">
+                            <span class="fa-layers fa-fw">
+                                <i class="fas fa-circle fa-lg white-icon"></i>
+                                <i class="fab fa-medium-m purple-icon" data-fa-transform="shrink-1 down-.25 right-.25"></i>
+                            </span>
+                        </a>
+                        <a class="github" href="https://github.com/spacelephant" target="_blank">
+                            <span class="fa-layers fa-fw">
+                                <i class="fas fa-circle fa-lg purple-icon"></i>
+                                <i class="fab fa-github fa-lg white-icon"></i>
+                            </span>
+                        </a>
+                        <a href="https://www.linkedin.com/company/spacelephant/" target="_blank">
+                            <span class="fa-layers fa-fw">
+                                <i class="fas fa-circle fa-lg white-icon"></i>
+                                <i class="fab fa-linkedin-in purple-icon" data-fa-transform="shrink-3 right-1.1 up-1.1"></i>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

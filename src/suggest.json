@@ -1,5 +1,4 @@
-{
-    "data": [
+[
         {
             "id": 1,
             "name": "Bitcoin",
@@ -9558,10 +9557,5 @@
             "symbol": "NPER",
             "website_slug": "nper"
         }
-    ],
-    "metadata": {
-        "timestamp": 1526637413,
-        "num_cryptocurrencies": 1593,
-        "error": null
-    }
-}
+    ]
+

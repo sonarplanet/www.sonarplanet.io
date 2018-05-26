@@ -1,3 +1,39 @@
+$color-c1: #7f1a2d;
+$color-c2: #ff4415;
+$color-c3: #ff7015;
+$color-c4: #2a2a2a;
+$color-c5: #f4f4f4;
+$color-c6: #808291;
+$color-c7: #cfd3d4;
+
+$font-weight-s1: 300;
+$font-weight-s2: 400;
+$font-weight-s3: 600;
+$font-weight-s4: 700;
+
+$letter-spacing-t1: 0;
+$letter-spacing-t2: 1px;
+$letter-spacing-t3: 3px;
+
+$gradient-g3: linear-gradient(90deg, $color-c1 0%, $color-c2 50%, $color-c1 100%);
+
+@keyframes fadeBG {
+  0%   { opacity:1; }
+  50%  { opacity:0.95;}
+  100% { opacity:1; }
+}
+
+
+* {
+  font-family: Titillium Web;
+}
+
+a {
+  &:hover, &:active {
+    text-decoration: none;
+  }
+}
+
 .float-line {
   min-height: 100vh; // TODO: not really responsive, find another solution to display header
   display: flex;
@@ -6,53 +42,52 @@
     display: flex !important;
     flex-direction: column;
     align-items: center;
-    background-color: black;
-    color: #fff;
-    padding: 40px 0px;
+    background: url('../images/transparent_shapes.png'), $gradient-g3;
+    background-repeat: no-repeat;
+    background-position-y: 45%;
+    background-size: cover;
+    -webkit-animation: fadeBG 2s linear infinite;
+    color: $color-c5;
+    padding-bottom: 40px;
     .logo {
-      max-height: 150px;
+      height: 300px;
       width: auto;
-      margin: 50px 0px;
     }
     .lead {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 30px 0px;
-      font-size: 1em;
+      font-size: 1.3em;
+      letter-spacing: $letter-spacing-t1;
+      font-weight: $font-weight-s2;
     }
-  }
-  .navbar {
-    background-color: #000000;
-    color: #ffffff;
-    a, a:hover, a.active {
+    .navbar {
+      width: 100%;
+      background-color: transparent;
       color: #ffffff;
-      text-decoration: none;
+    }
+    .navbar-brand img {
+      height: 80px;
+      width: auto;
+    }
+    .navbar-right a {
+      padding: 8px 30px;
+      margin-right: 30px;
+      border-radius: 20px;
+      background-color: $color-c5;
+      color: $color-c1;
+      text-transform: uppercase;
+      letter-spacing: $letter-spacing-t3;
+      font-weight: $font-weight-s3;
+      box-shadow: 0px 5px 35px #000000;
+      &:first-child {
+        background-color: $color-c1;
+        color: $color-c5;
+      }
     }
   }
-  .navbar-brand img {
-    height: 30px;
-    width: auto;
-  }
-  .navbar-right a {
-    border: 2px solid #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
+
 }
-
-#typewriter {
-  &::before {
-    content: "*";
-    margin-right: 10px;
-  }
-  &::after {
-    content: "*";
-    margin-left: 5px;
-  }
-}
-
-
 
 .checkbox label input {
   margin-right: 5px;
@@ -66,10 +101,6 @@
   text-align: center;
 }
 
-.right {
-  text-align: right;
-}
-
 .container h2 {
   width: 100%;
   span {
@@ -78,16 +109,16 @@
 }
 
 section {
-  padding: 40px 0px;
-  background-color: lightgrey;
+  background-color: #FFFFFF;
   text-align: center;
-  &.odd {
-    background-color: grey;
-    color: #fff;
-  }
   &.action {
     display: flex;
     flex: 1;
+    h2 {
+      color: $color-c1;
+      letter-spacing: $letter-spacing-t1;
+      font-weight: $font-weight-s3;
+    }
     .choose-network {
       .radio-buttons {
         margin-top: 20px;
@@ -111,6 +142,160 @@ section {
   }
 }
 
+.seo {
+  text-align: left;
+  padding: 50px;
+  h3 {
+    color: $color-c3;
+    letter-spacing: $letter-spacing-t3;
+    font-weight: $font-weight-s2;
+    font-size: 1em;
+  }
+  h4 {
+    color: $color-c1;
+    letter-spacing: $letter-spacing-t1;
+    font-weight: $font-weight-s3;
+    font-size: 2em;
+    span {
+      display: block;
+    }
+  }
+  .seo-content {
+    color: $color-c4;
+    letter-spacing: $letter-spacing-t1;
+    font-weight: $font-weight-s2;
+  }
+}
+
+.newsletter {
+  background: url('../images/gradient.png'), linear-gradient(180deg, $color-c2 0%, $color-c1 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $color-c5;
+  padding: 80px;
+  h2 {
+    font-weight: $font-weight-s2;
+    letter-spacing: $letter-spacing-t3;
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+  h3 {
+    font-weight: $font-weight-s3;
+    letter-spacing: $letter-spacing-t1;
+    font-size: 2em;
+  }
+  .privacy {
+    letter-spacing: $letter-spacing-t1;
+    font-weight: $font-weight-s2;
+  }
+  .emailForm {
+    #emailForm {
+      padding: 20px 0px;
+    }
+    .input-group {
+      max-width: 800px;
+      margin: auto;
+      .form-control {
+        border-radius: 30px;
+        line-height: 44px;
+        border-radius: 30px;
+        border: none;
+        background-color: $color-c5;
+        color: $color-c4;
+        font-weight: $font-weight-s2;
+        letter-spacing: $letter-spacing-t1;
+        padding-left: 30px;
+      }
+      .input-group-append {
+        position:  absolute;
+        right:  8px;
+        margin-top: 6px;
+        .input-group-text {
+          border-radius: 30px;
+          padding: 10px 30px;
+          background-color: $color-c1;
+          text-transform: uppercase;
+          letter-spacing: $letter-spacing-t3;
+          font-weight: $font-weight-s3;
+          border: none;
+          color: $color-c5;
+          &:hover {
+            background-color: $color-c3;
+          }
+        }
+      }
+    }
+  }
+}
+
+.stop {
+  background-color: $color-c4;
+  color: $color-c5;
+  text-align: left;
+  padding: 40px;
+  h3 {
+    color: $color-c3;
+    font-weight: $font-weight-s3;
+    text-transform: uppercase;
+    font-size: 1em;
+    img {
+      max-width: 30px;
+      margin: 15px;
+    }
+  }
+  h5 {
+    color: $color-c3;
+    letter-spacing: $letter-spacing-t1;
+  }
+}
+
+.community {
+  padding: 40px;
+  background-color: $color-c5;
+  color: $color-c4;
+  letter-spacing: $letter-spacing-t1;
+  text-align: left;
+  .community-users {
+    max-width: 100px;
+  }
+  .description {
+    color: $color-c1;
+    font-weight: $font-weight-s2;
+  }
+}
+
+.values {
+  .thumbnail {
+    margin: 80px 30px;
+    .caption {
+      p {
+        text-align: center;
+      }
+      h3 {
+        font-size: 1.5em;
+        font-weight: $font-weight-s3
+      }
+    }
+    img {
+      height: 50px;
+      margin-bottom: 15px;
+    }
+  }
+  .universal {
+    background: linear-gradient(180deg, #FFFFFF 0%, #d7d7d7 100%);
+  }
+  .no-signup {
+    background: linear-gradient(180deg, $color-c3 0%, $color-c2 100%);
+    color: $color-c5;
+    box-shadow: 0px 10px 60px 0px #000000;
+  }
+  .simple {
+    background: linear-gradient(180deg, $color-c2 0%, $color-c1 100%);
+    color: $color-c5;
+  }
+}
+
+
 label.radio-inline {
   border: 1px solid #ffffff;
   border-radius: 5px;
@@ -133,6 +318,7 @@ label.radio-inline {
   .carousel-inner {
     display: flex;
     flex:1;
+    overflow: visible;
   }
   .carousel-indicators li {
     text-indent: initial;
@@ -152,23 +338,42 @@ label.radio-inline {
   }
 }
 
-.thumbnail .caption p {
-  text-align: justify;
-}
-
 footer {
-  background-color: black;
-  color: #fff;
+  background-color: $color-c4;
+  color: $color-c5;
   padding: 40px 0px;
+  a, a:hover, a:active {
+    color: $color-c3;
+    font-weight: $font-weight-s3;
+  }
+  .coord {
+    font-weight: $font-weight-s2;
+    letter-spacing: $letter-spacing-t2;
+    img {
+      margin: 30px 0px;
+      width: 150px;
+    }
+  }
+  h6 {
+   color: $color-c5;
+   letter-spacing: $letter-spacing-t2;
+   font-weight: $font-weight-s3;
+  }
+  .social {
+    a {
+      color: $color-c4;
+    }
+  }
+  .navigation {
+    a {
+      color: $color-c6;
+      font-weight: $font-weight-s2;
+      letter-spacing: $letter-spacing-t2;
+      display: block;
+      &:hover, &:active {
+        color: $color-c5;
+      }
+    }
+  }
 }
 
-
-.emailForm {
-  padding: 50px 100px;
-  border: 1px solid #FFFFFF;
-  margin: 30px 0px;
-}
-
-.upper-text{
-  text-transform: uppercase;
-}

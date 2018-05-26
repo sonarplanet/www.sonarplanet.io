@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  const DATA_TEXT = ['CONFIRMATIONS OF YOUR TRANSACTION.', 'EXECUTION OF YOUR...', 'CHANGING BALANCE'];
+  const DATA_TEXT = ['confirmations of your transaction.', 'execution of your...', 'changing balance'];
 
   let typeWriter = (text: string, i: number, fnCallback: Function) => {
     if (i < text.length) {
@@ -28,4 +28,9 @@ $(document).ready(() => {
     }
   };
   startTextAnimation(0);
+
 });
+
+$(".typeahead.dropdown-menu .dropdown-item").on("click", () => {
+  console.log("clickkkkkkkkkkkk");
+})
