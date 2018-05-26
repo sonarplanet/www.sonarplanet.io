@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const configurations = require('./src/properties.json');
 const env = process.env.WEBPACK_ENV_MODE;
 const configuration = configurations[env];
@@ -9,7 +10,7 @@ const outputPath = 'dist';
 
 module.exports = {
   entry: {
-    main: ['./src/main.ts', './src/styles/main.scss'],
+    main: ['./src/ts/main.ts', './src/ts/eMailForm.ts', './src/styles/main.scss'],
   },
   output: {
     filename: './js/[name].js',
@@ -100,6 +101,12 @@ function getPlugins(env) {
       //favicon: "./src/images/favicon.ico",
       title: 'Sonarplanet',
     }),
+    new CopyWebpackPlugin([
+      {
+        from: './src/suggest.json',
+        to: './suggest.json'
+      }
+    ])
   ];
 
   // Create CNAME file for Github Pages deployment
