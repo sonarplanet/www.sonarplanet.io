@@ -1,9 +1,12 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const configurations = require('./src/properties.json');
 const env = process.env.WEBPACK_ENV_MODE;
 const configuration = configurations[env];
 
+const fs = require('fs');
+const glob = require('glob');
 const path = require('path');
 const outputPath = 'dist';
 
@@ -115,6 +118,29 @@ function getPlugins(env) {
     commonPlugins.push(createFilePlugin);
   }
 
+  const faviconplugin = new FaviconsWebpackPlugin({
+    logo: './src/images/icon.png',
+    prefix: './images/favicons-[hash:5]/',
+    inject: true,
+    persistentCache: true,
+    icons: {
+      android: true,
+      appleIcon: true,
+      appleStartup: false,
+      coast: false,
+      favicons: true,
+      firefox: true,
+      opengraph: false,
+      twitter: false,
+      yandex: false,
+      windows: false,
+    },
+  });
+  commonPlugins.push(faviconplugin);
+
+  const faviconCopyPlugin = new FaviconCopyPlugin();
+  commonPlugins.push(faviconCopyPlugin);
+
   let uglifyPlugin;
 
   switch (env) {
@@ -140,4 +166,26 @@ function getPlugins(env) {
   commonPlugins.push(uglifyPlugin);
 
   return commonPlugins;
+}
+
+function FaviconCopyPlugin() {
+  var apply = function apply(compiler) {
+    compiler.plugin('after-emit', function(compilation, callback) {
+      const SRC_VALUE = 'images/favicons-*/favicon.ico';
+      const DEST_VALUE = 'favicon.ico';
+
+      var outputPath = compiler.options.output.path;
+      var srcPath = path.join(outputPath, SRC_VALUE);
+      srcPath = glob.sync(srcPath)[0];
+      var dest = path.join(outputPath, DEST_VALUE);
+
+      fs.createReadStream(srcPath).pipe(fs.createWriteStream(dest));
+
+      callback();
+    });
+  };
+
+  return {
+    apply: apply,
+  };
 }
