@@ -1,5 +1,9 @@
 $(document).ready(() => {
-  const DATA_TEXT = ['confirmations of your transaction.', 'execution of your...', 'changing balance'];
+  const DATA_TEXT = [
+    'waiting confirmation of your transactions.',
+    'waiting execution of your transactions',
+    'tracking changes on your balance of your public keys.',
+    'looking for your crypto'];
 
   let typeWriter = (text: string, i: number, fnCallback: Function) => {
     if (i < text.length) {
@@ -20,7 +24,6 @@ $(document).ready(() => {
         startTextAnimation(0);
       }, 2000);
     }
-
     if (DATA_TEXT[index] && index < DATA_TEXT[index].length) {
       typeWriter(DATA_TEXT[index], 0, function() {
         startTextAnimation(index + 1);
@@ -30,7 +33,3 @@ $(document).ready(() => {
   startTextAnimation(0);
 
 });
-
-$(".typeahead.dropdown-menu .dropdown-item").on("click", () => {
-  console.log("clickkkkkkkkkkkk");
-})

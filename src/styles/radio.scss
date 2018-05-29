@@ -1,0 +1,42 @@
+.sonar-radio {
+  display: flex;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    &:checked ~ .checkmark {
+      background-color: $color-c3;
+      &:after {
+        display: block;
+      }
+    }
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 21px;
+    width: 21px;
+    background-color: $color-c7;
+    border-radius: 50%;
+    &:after {
+      top: 4px;
+      left: 4px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: white;
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+}
