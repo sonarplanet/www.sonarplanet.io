@@ -466,13 +466,17 @@
                         <img src="./images/slack.svg" alt="slack-logo" /> Join our growing slack community
                     </h6>
                     <div class="slack">
-                        <div class="input-group my-4">
-                            <input id="slack-join" name="entry.1636836867" type="email" class="form-control" placeholder="Enter your email to get an invite"
-                                aria-label="Enter your email to get an invite" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <input class="input-group-text" id="basic-addon2" type="submit" value="GO!" />
+                        <iframe name="hidden_iframe_slack" id="hidden_iframe_slack" style="display:none;"></iframe>
+                        <form id="slackForm" action="https://docs.google.com/forms/d/e/1FAIpQLScU4HMtz2nTZe8ffUXbBJF0SbWz-vUW4-_GpkCvYcsN4gQYeQ/formResponse"
+                            method="post" target="hidden_iframe_slack">
+                            <div class="input-group my-4">
+                                <input id="slack-join" name="entry.646647047" type="email" class="form-control" placeholder="Enter your email to get an invite"
+                                    aria-label="Enter your email to get an invite" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <input class="input-group-text" id="basic-addon2" type="submit" value="GO!" />
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                     <div class="row">
                         <div class="follow">

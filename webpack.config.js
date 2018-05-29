@@ -10,7 +10,7 @@ const outputPath = 'dist';
 
 module.exports = {
   entry: {
-    main: ['./src/ts/main.ts', './src/ts/eMailForm.ts', './src/ts/actionNav.ts', './src/styles/main.scss'],
+    main: ['./src/ts/main.ts', './src/ts/eMailForm.ts', './src/ts/slackForm.ts', './src/ts/actionNav.ts', './src/styles/main.scss'],
   },
   output: {
     filename: './js/[name].js',
