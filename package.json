@@ -33,9 +33,11 @@
     "lint": "tslint -c ./tslint.json -t codeFrame \"{src,test}/**/*.ts\""
   },
   "devDependencies": {
+    "@types/bootstrap": "^4.1.0",
     "@types/jest": "^22.2.3",
     "@types/jquery": "^3.3.2",
     "@types/typeahead": "^0.11.32",
+    "boostrap": "^2.0.0",
     "copy-webpack-plugin": "^4.5.1",
     "create-file-webpack": "^1.0.0",
     "css-loader": "^0.28.11",
@@ -71,7 +73,7 @@
   "private": true,
   "contributors": [
     {
-      "name": "Guillaume Nicolas http://spacelephant.org#guilaume",
+      "name": "Guillaume Nicolas http://spacelephant.org#guillaume",
       "email": "guillaume.nicolas@spacelephant.org"
     },
     {
