@@ -53,8 +53,7 @@
 
             $.get("suggest.json", function (data) {
                 $("#typeaheadSearch").typeahead({
-                    source: data,
-                    name: 'testFTR'
+                    source: data
                 });
             });
         })
