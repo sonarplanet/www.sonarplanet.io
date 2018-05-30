@@ -610,11 +610,11 @@ footer {
 @import "checkbox.scss";
 
 //Temporary hide seo bloc
-// .seo {
-//   padding: 50px 0px;
-//   .container {
-//     .row {
-//       display: none;
-//     }
-//   }
-// }
+.seo {
+  padding: 50px 0px;
+  .container {
+    .row {
+      display: none;
+    }
+  }
+}
