@@ -10,6 +10,9 @@
 [context.develop] # develop branch name
   command = "yarn integ"
 
+[context.master] # master branch name - our production
+  command = "yarn prod"
+
 [context.branch-deploy] # all development branches: feat/fix branches ...
   command = "yarn integ"
 
