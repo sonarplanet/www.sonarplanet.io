@@ -5,7 +5,7 @@ const env = process.env.WEBPACK_ENV_MODE;
 const configuration = configurations[env];
 
 const path = require('path');
-const outputPath = "dist";
+const outputPath = 'dist';
 
 module.exports = {
   entry: {
@@ -80,14 +80,14 @@ function getPlugins(env) {
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
-      //favicon: "./src/images/favicon.ico",
+      favicon: './src/images/favicon.ico',
       title: 'Unik-name',
     }),
   ];
 
   // Create CNAME file for Github Pages deployment
   if (configuration.cname) {
-    console.log("Will generate CNAME file with content: " + configuration.cname);
+    console.log('Will generate CNAME file with content: ' + configuration.cname);
     const CreateFileWebpack = require('create-file-webpack');
     let createFilePlugin = new CreateFileWebpack({
       path: outputPath,
